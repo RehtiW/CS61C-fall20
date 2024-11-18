@@ -22,7 +22,7 @@ dest:
     .word   0
 
 .text
-fun:
+fun: 
     addi t0, a0, 1
     sub t1, x0, a0
     mul a0, t0, t1

@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-int main(int argc, char *argv[]) {
+int main() {
     int i;
     int count = 0;
     int *p = &count;

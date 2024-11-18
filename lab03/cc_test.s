@@ -51,11 +51,7 @@ main:
     ecall
 
 # Just a simple function. Returns 1.
-#
-# FIXME Fix the reported error in this function (you can delete lines
-# if necessary, as long as the function still returns 1 in a0).
 simple_fn:
-    mv a0, t0
     li a0, 1
     ret
 
@@ -71,12 +67,9 @@ simple_fn:
 #     return s0;
 # }
 #
-# FIXME There's a CC error with this function!
-# The big all-caps comments should give you a hint about what's
-# missing. Another hint: what does the "s" in "s0" stand for?
 naive_pow:
-    # BEGIN PROLOGUE
-    # END PROLOGUE
+    addi sp,sp,-4
+    sw s0,0(sp)
     li s0, 1
 naive_pow_loop:
     beq a1, zero, naive_pow_end
@@ -85,8 +78,8 @@ naive_pow_loop:
     j naive_pow_loop
 naive_pow_end:
     mv a0, s0
-    # BEGIN EPILOGUE
-    # END EPILOGUE
+    lw,s0,0(sp)
+    addi sp,sp,4
     ret
 
 # Increments the elements of an array in-place.
@@ -96,54 +89,55 @@ naive_pow_end:
 # This function calls the "helper_fn" function, which takes in an
 # address as argument and increments the 32-bit value stored there.
 inc_arr:
-    # BEGIN PROLOGUE
-    #
-    # FIXME What other registers need to be saved?
-    #
-    addi sp, sp, -4
-    sw ra, 0(sp)
+    addi sp, sp, -12      # 给栈分配16字节空间
+    sw ra, 0(sp)          # 保存返回地址
+    sw s0, 4(sp)          # 保存s0
+    sw s1, 8(sp)          # 保存s1
     # END PROLOGUE
-    mv s0, a0 # Copy start of array to saved register
-    mv s1, a1 # Copy length of array to saved register
-    li t0, 0 # Initialize counter to 0
+    mv s0, a0             # 将数组起始地址保存到s0
+    mv s1, a1             # 将数组长度保存到s1
+    li t0, 0              # 初始化计数器 t0 为 0
 inc_arr_loop:
-    beq t0, s1, inc_arr_end
-    slli t1, t0, 2 # Convert array index to byte offset
-    add a0, s0, t1 # Add offset to start of array
-    # Prepare to call helper_fn
-    #
-    # FIXME Add code to preserve the value in t0 before we call helper_fn
-    # Hint: What does the "t" in "t0" stand for?
-    # Also ask yourself this: why don't we need to preserve t1?
-    #
-    jal helper_fn
-    # Finished call for helper_fn
-    addi t0, t0, 1 # Increment counter
-    j inc_arr_loop
+    beq t0, s1, inc_arr_end 
+    slli t1, t0, 2        
+    add a0, s0, t1
+    
+    addi sp,sp,-4
+    sw t0,0(sp)
+ 
+    jal helper_fn        #
+    
+    lw t0,0(sp)
+    addi t0, t0, 1
+    addi sp,sp,4
+    j inc_arr_loop       
+
 inc_arr_end:
     # BEGIN EPILOGUE
-    lw ra, 0(sp)
-    addi sp, sp, 4
+    lw ra, 0(sp)          # 恢复返回地址
+    lw s0, 4(sp)          # 恢复s0
+    lw s1, 8(sp)          # 恢复s1
+    addi sp, sp, 12       # 恢复栈指针
     # END EPILOGUE
     ret
 
-# This helper function adds 1 to the value at the memory address in a0.
-# It doesn't return anything.
-# C pseudocode for what it does: "*a0 = *a0 + 1"
-#
-# FIXME This function also violates calling convention, but it might not
-# be reported by the Venus CC checker (try and figure out why).
-# You should fix the bug anyway by filling in the prologue and epilogue
-# as appropriate.
 helper_fn:
     # BEGIN PROLOGUE
+    addi sp, sp, -8       # 给栈分配空间(8字节)
+    sw t0, 0(sp)          # 保存 t0
+    sw s0, 4(sp)          # 保存 s0
     # END PROLOGUE
-    lw t1, 0(a0)
-    addi s0, t1, 1
-    sw s0, 0(a0)
+    lw t0, 0(a0)          # 将数组当前值加载到 t1
+    addi s0, t0, 1        # 将 t0 加 1 存入 s0
+    sw s0, 0(a0)          # 将更新后的值存回数组
+
     # BEGIN EPILOGUE
+    lw t0, 0(sp)          # 恢复 t1
+    lw s0, 4(sp)          # 恢复 s0
+    addi sp, sp, 8        # 恢复栈指针
     # END EPILOGUE
     ret
+
 
 # YOU CAN IGNORE EVERYTHING BELOW THIS COMMENT
 
