@@ -23,7 +23,12 @@ void set_bit(unsigned * x,
 // Assume 0 <= n <= 31
 void flip_bit(unsigned * x,
               unsigned n) {
-    unsigned v = get_bit(x ,n);
-    set_bit(x, n, v);
+    unsigned v = get_bit(*x ,n);
+    if (v==1) {
+        set_bit(x, n, 0);
+    }else {
+        set_bit(x, n, 1);
+    }
+
 }
 
