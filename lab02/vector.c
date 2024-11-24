@@ -127,9 +127,6 @@ void vector_set(vector_t *v, size_t loc, int value) {
       if(temp == NULL) {
         allocation_failed();
       }
-      for(size_t i =v->size; i < newsize; i++) {
-        temp[i] = 0;
-      }
       v->data = temp;
       v->size = newsize;
     }
