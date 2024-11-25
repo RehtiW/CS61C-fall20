@@ -1,12 +1,12 @@
-# Static Storage:
+# Static Storage(静态存储区):
 ## 作用:存储全局变量
 
 
-# The Stack:
+# The Stack(栈):
 ## 作用:store local variables included:function call,local variables
 
 
-# The Heap:
+# The Heap(堆):
 ## 作用:store variables that assigned by  [[void* malloc(size_t size)]]
 ## 堆内存管理的典型实行方式之一:
 ### 空闲链表(FreeList):
