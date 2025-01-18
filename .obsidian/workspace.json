@@ -4,37 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0565dcef6644f82e",
+        "id": "c20593e729ba2394",
         "type": "tabs",
         "children": [
           {
-            "id": "9e718b72f7ae3e8d",
+            "id": "2cc29a4ea8a7e6fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "06-单周期CPU/01-数据通路-datapath.md",
+                "file": "09-虚拟内存/端到端的地址翻译流程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-数据通路-datapath"
-            }
-          },
-          {
-            "id": "6e60716628ba2b8f",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "z图例/Pasted image 20241209201314.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20241209201314"
+              "title": "端到端的地址翻译流程"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -53,7 +40,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "byCreatedTimeReverse"
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -175,54 +162,56 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "6e60716628ba2b8f",
+  "active": "2cc29a4ea8a7e6fa",
   "lastOpenFiles": [
-    "06-单周期CPU/01-数据通路-datapath.md",
-    "06-单周期CPU/控制器-controller.md",
+    "09-虚拟内存/分级页表.md",
+    "09-虚拟内存/virtual memory-Non-hierarchical Page Table.md",
+    "09-虚拟内存/端到端的地址翻译流程.md",
+    "Pasted image 20250117215020.png",
+    "Pasted image 20250117213124.png",
+    "10-并行",
+    "chipmunk.png",
+    "08-缓存/0-二进制前缀.md",
+    "05-同步数字系统/02-状态.md",
+    "z图例/Screenshot 2024-12-19 211754.png",
+    "z图例/reference-card.pdf",
+    "z图例/reference card.md",
+    "z图例/Pasted image 20250111180711.png",
+    "z图例/Pasted image 20250110233604.png",
+    "z图例/Pasted image 20250110202119.png",
+    "z图例/Pasted image 20250109173232.png",
+    "z图例/Pasted image 20250105171705.png",
+    "z图例/Pasted image 20250105171645.png",
+    "z图例/Pasted image 20241209201222.png.md",
+    "z图例",
+    "05-同步数字系统/01-一些基础知识.md",
     "08-缓存/3-组关联缓存.md",
+    "07-流水线/流水线风险.md",
     "08-缓存/2-直接映射缓存.md",
     "08-缓存/1-存储器层次.md",
-    "08-缓存/0-二进制前缀.md",
     "08-缓存/总结.md",
-    "Pasted image 20241229200242.png",
-    "Pasted image 20241229200150.png",
-    "Pasted image 20241229200126.png",
-    "Pasted image 20241229200017.png",
-    "Pasted image 20241229195718.png",
-    "Pasted image 20241229195508.png",
-    "Pasted image 20241229195456.png",
-    "Pasted image 20241229195313.png",
-    "z图例/Pasted image 20241221115044.png",
-    "07-流水线/流水线风险.md",
+    "06-单周期CPU/01-数据通路-datapath.md",
+    "06-单周期CPU/控制器-controller.md",
+    "07-流水线/project3回顾.md",
     "07-流水线/影响处理器性能的要素.md",
-    "z图例/Screenshot 2024-12-19 211754.png",
+    "09-虚拟内存",
+    "01-C_details/lab01.md",
+    "02-计算机基础架构/内存.md",
     "03-RISC-V/RISC-V指令集格式/格式表.md",
     "05-同步数字系统/03-组合逻辑模块(Combinational Logic Block).md",
-    "05-同步数字系统/02-状态.md",
-    "未命名",
     "未命名.md",
-    "05-同步数字系统/01-一些基础知识.md",
     "08-缓存",
-    "01-C_details/lab01.md",
     "01-C_details/Floating Point.md",
     "01-C_details/Memories.md",
     "01-C_details/malloc().md",
     "07-流水线",
     "03-RISC-V/RISC-V指令集/内存加载.md",
-    "03-RISC-V/RISC-V指令集/引例集.md",
-    "04-编译,汇编,链接,加载(RISC-V)/Compiler,Assembler.md",
-    "04-编译,汇编,链接,加载(RISC-V)/Linker.md",
-    "04-编译,汇编,链接,加载(RISC-V)/Loader.md",
-    "z图例/Pasted image 20241209201222.png.md",
-    "06-CPU-数据通路/数据通路-datapath.md",
     "06-单周期CPU",
     "06-CPU-数据通路",
     "00",
     "未命名.canvas",
-    "z图例/reference-card.pdf",
     "05-同步数字系统/未命名.canvas",
     "05-同步数字系统",
-    "z图例",
     "未命名 11.canvas",
     "未命名 10.canvas",
     "未命名 9.canvas",
@@ -230,7 +219,6 @@
     "未命名 7.canvas",
     "未命名 6.canvas",
     "未命名 5.canvas",
-    "未命名 4.canvas",
-    "04-编译,汇编,链接,加载(RISC-V)"
+    "未命名 4.canvas"
   ]
 }
